@@ -1,0 +1,60 @@
+<ion-content style="--background: #fff;">
+  <div style="display: flex; ">
+    <div class="div">
+      <ion-icon [routerLink]="['/vendor-new-page']" class="icon" name="chevron-back-outline"></ion-icon>
+    </div>
+    <div style="margin-left: 5%">
+      <h3 class="h3"> All Convenience Charges</h3>
+    </div>
+  </div>
+  <div *ngIf="show" style="text-align: center;margin-top: 28%;">
+    <img src="/assets/img/opps.jpg" alt="">
+    <h2 style="font-weight: bold;">
+      There Are No Tickets Found
+    </h2>
+  </div>
+
+  <div *ngFor="let user of obj">
+    <ion-card class="card">
+      <ion-grid>
+        <ion-row class="date"  >
+          <h6 class="side">Date</h6>
+          <ion-col    *ngIf="user.ConvenienceDate == ''" class="short">Not Set</ion-col>
+          <ion-col   *ngIf="user.ConvenienceDate  != ''" class="short"> {{user.ConvenienceDate}}</ion-col>
+        </ion-row>
+      </ion-grid>
+   
+      <ion-grid>
+        <ion-row class="date"  >
+          <h6 class="side">Convenience From</h6>
+          <ion-col    *ngIf="user.ConvenienceFrom == ''" class="short">Not Set</ion-col>
+          <ion-col   *ngIf="user.ConvenienceFrom != ''" class="short"> {{user.ConvenienceFrom}}</ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      <ion-grid>
+        <ion-row class="date"  >
+          <h6 class="side">Convenience To</h6>
+          <ion-col    *ngIf="user.ConvenienceTo == ''" class="short">Not Set</ion-col>
+          <ion-col   *ngIf="user.ConvenienceTo  != ''" class="short"> {{user.ConvenienceTo}}</ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row class="date"  >
+          <h6 class="side">Convenience Amount</h6>
+          <ion-col    *ngIf="user.ConvenienceAmount== ''" class="short">Not Set</ion-col>
+          <ion-col   *ngIf="user.ConvenienceAmount  != ''" class="short"> {{user.ConvenienceAmount}}</ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row class="date"  >
+          <h6 class="side">Reference</h6>
+          <ion-col    *ngIf="user.Reference== ''" class="short">Not Set</ion-col>
+          <ion-col   *ngIf="user.Reference  != ''" class="short"> {{user.Reference}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>

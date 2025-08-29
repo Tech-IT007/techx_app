@@ -1,0 +1,111 @@
+<ion-header class="dashboard-header">
+  <div class="logo-container">
+    <img src="assets/img/logo.jpg" alt="Logo" />
+  </div>
+</ion-header>
+
+<ion-content class="dashboard-content">
+<ion-card class="profile-card">
+  <div class="profile-info">
+    <!-- Profile Image -->
+    <img class="profile-img" src="assets/img/profile1.png" alt="Profile" />
+
+    <!-- Name & Date -->
+    <div class="profile-details">
+      <h2 class="profile-name">Deepak</h2>
+      <p class="profile-date">
+        <ion-icon name="calendar-outline"></ion-icon>
+        App Devloper 
+      </p>
+    </div>
+  </div>
+</ion-card>
+  <!-- Floating Logout Button -->
+  <ion-fab (click)="lougout()" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="logout-btn">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+      
+  <!-- Banner Image -->
+  <!-- <div class="banner-container">
+    <img src="/assets/img/ac-repair-service.png" alt="Banner" />
+  </div> -->
+
+  <!-- Dashboard Grid -->
+  <ion-grid class="dashboard-grid">
+    <ion-row>
+      <!-- Home Care -->
+      <ion-col size="6">
+        <ion-card button routerLink="/home" class="dashboard-card">
+          <img src="/assets/img/home_care.png" alt="Home Care" />
+          <p>Home Care</p>
+        </ion-card>
+      </ion-col>
+
+      <!-- Corporate -->
+      <ion-col size="6">
+        <ion-card button (click)="roles()" class="dashboard-card">
+          <img src="/assets/img/Corporate.png" alt="Corporate" />
+          <p>Corporate</p>
+        </ion-card>
+      </ion-col>
+
+      <!-- Profile -->
+      <ion-col size="6">
+        <ion-card button routerLink="/information" class="dashboard-card">
+          <img src="/assets/img/profile1.png" alt="Profile" />
+          <p>Profile</p>
+        </ion-card>
+      </ion-col>
+
+      <!-- Dashboard (Conditional) -->
+      <ion-col size="6" *ngIf="status">
+        <ion-card button routerLink="/tseting23" class="dashboard-card">
+          <img src="/assets/img/dashboard.png" alt="Dashboard" />
+          <p>Dashboard</p>
+        </ion-card>
+      </ion-col>
+
+      <!-- Leave -->
+      <ion-col size="6">
+        <ion-card button routerLink="/leave-managment" class="dashboard-card">
+          <img src="/assets/img/4.png" alt="Leave" />
+          <p>Leave</p>
+        </ion-card>
+      </ion-col>
+
+      <!-- Site Visits -->
+      <ion-col size="6">
+        <ion-card button routerLink="/visitor-all-tickets" class="dashboard-card">
+          <img src="/assets/img/visitor.png" alt="Site Visits" />
+          <p>Site Visits</p>
+        </ion-card>
+      </ion-col>
+
+      <!-- Attendance -->
+      <ion-col size="6">
+        <ion-card button (click)="router_to_attendance()" class="dashboard-card">
+          <img src="/assets/img/2.png" alt="Attendance" />
+          <p>Attendance</p>
+        </ion-card>
+      </ion-col>
+
+      <!-- Convenience -->
+      <ion-col size="6">
+        <ion-card button routerLink="/charge" class="dashboard-card">
+          <img src="/assets/img/3.png" alt="Convenience" />
+          <p>Convenience</p>
+        </ion-card>
+      </ion-col>
+
+      <!-- Attendance History (Conditional) -->
+      <ion-col size="6" *ngIf="vendor">
+        <ion-card button routerLink="/attdence-history" class="dashboard-card">
+          <img src="/assets/img/test.png" alt="Attendance History" />
+          <p>Attendance History</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

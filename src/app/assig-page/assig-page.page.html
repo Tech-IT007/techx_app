@@ -1,0 +1,69 @@
+
+<ion-content style="--background: #fff">
+  <div>
+    <h3 class="h3">Change Tickets</h3>
+    <div class="div">
+      <ion-icon routerLink="/profile" class="icon" name="chevron-back-outline"></ion-icon>
+    </div>
+  </div>
+  <div *ngIf="show" style="text-align: center; margin-top: 28%">
+    <img src="/assets/img/opps.jpg" alt="" />
+    <h2 style="font-weight: bold">There Are No Tickets Found</h2>
+  </div>
+
+
+  
+  <h4 style="margin-left: 17px; color: #000">{{ impact.BookingID}}</h4>
+
+
+  <div *ngIf="open">
+    <ion-card style="box-shadow: none; background: #fff">
+      <h4 class="serv">Assigned To</h4>
+      <h5 class="plum">{{ impact.EmployeeName}}</h5>
+      <h4 class="serv">Status </h4>
+    <h5 class="plum">{{ impact.Status}}</h5>
+    </ion-card>
+  </div>
+  <div>
+    <div *ngIf="close">
+      <ion-item style="--background: #fff">
+        <ion-label style="color: #000">Assigned To</ion-label>
+        <ion-select (ionChange)=" onSelectChange($event)"   [(ngModel)]="bookingdata.AssignedTo" style="color: #000" idlDefault>
+          <ion-select-option value="{{user.ID}}" *ngFor="let user of obj">{{user.Name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+
+ <div *ngIf="Complet_value">
+      <ion-item style="--background: #fff">
+        <ion-label  style="color: #000">Status</ion-label>
+        <ion-select   [(ngModel)]="bookingdata1.BookingStatus" interface="popover" style="color: #000;     font-size: smaller;">
+          <ion-select-option value="Generate OTP for Closure">Submit for Closure</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+   <div    *ngIf="status_Assigned ">
+    <div *ngIf="Assigned_value">
+      <ion-item style="--background: #fff">
+        <ion-label  style="color: #000">Status</ion-label>
+        <ion-select   [(ngModel)]="bookingdata.BookingStatus" interface="popover" style="color: #000;     font-size: smaller;">
+          <ion-select-option value="Assigned">Assigned</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+   
+  
+   </div>
+ 
+    <div *ngIf="submit1">
+      <ion-button (click)=" Service_Change_Status() " class="button" expand="block">
+        Submit</ion-button>
+    </div>
+     
+    <div *ngIf="submit2">
+      <ion-button (click)=" Service_Change_Status2() " class="button" expand="block">
+        Submit for Closure</ion-button>
+    </div>
+  </div>
+</ion-content>

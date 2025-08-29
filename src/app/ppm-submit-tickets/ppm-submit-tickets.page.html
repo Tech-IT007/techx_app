@@ -1,0 +1,275 @@
+<ion-content style="--background : #fff;">
+  <div>
+    <h3 class="h3">Ticket Information</h3>
+    <div class="div">
+      <ion-icon routerLink="/ppm-view-details" class="icon" name="chevron-back-outline"></ion-icon>
+    </div>
+  </div>
+  <div>
+    <div *ngIf="otr">
+      <div *ngIf="show" style="text-align: center; margin-top: 28%">
+        <img src="/assets/img/opps.jpg" alt="" />
+        <h2 style="font-weight: bold">There Are No Tickets Found</h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h4 style="margin-left: 12px; color: #000">{{ impact.TicketID }}</h4>
+  </div>
+  <div *ngIf="open">
+    <ion-card style="box-shadow: none; background: #fff; margin-top: 0px">
+      <h4 class="serv">Assigned To</h4>
+      <h5 class="plum">{{ impact.EmployeeName }}</h5>
+      <h4 class="serv">Status</h4>
+      <div *ngIf="impact.Status == ''">
+        <h5 class="plum">Not Set</h5>
+      </div>
+      <div *ngIf="impact.Status != ''">
+        <h5 class="plum">{{ impact.Status}}</h5>
+      </div>
+
+      <h4 class="serv">Due Date</h4>
+      <h5 class="plum">{{ impact.DueDate }}</h5>
+    </ion-card>
+  </div>
+
+  <div>
+    <div style=" display: flex; justify-content: space-between; margin-top: 6%; ">
+      <div style="display: flex;">
+        <span style="margin-left: 10px; font-weight: 500;" class="span"> Pre Img </span>
+        <span *ngIf="pre_done" style="color: green; font-size: 21px;  margin-left: 6px; ">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </span>
+        <span *ngIf="pre_not_done" style="color: red; font-size: 21px;  margin-left: 6px; ">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+        </span>
+      </div>
+      <div style="margin-left: 30%">
+        <ion-button [disabled]="isButtonDisabled22" (click)="capture()" id="cap">Capture
+        </ion-button>
+      </div>
+      <div *ngIf="add2" style="margin-right: 19px">
+        <div *ngIf="img2">
+          <samp><ion-icon (click)="click_to_next2()" style="font-size: 20px; color: red"
+              name="add-circle-outline"></ion-icon></samp>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img [src]="clicked" />
+    </div>
+    <div *ngIf="open4" style="
+        display: flex;
+        justify-content: space-between;
+        margin-top: 6%;
+      ">
+      <div>
+        <span style="margin-left: 10px; font-weight: 500;" class="span"> Pre Img </span>
+      </div>
+      <div style="margin-left: 30%">
+        <ion-button [disabled]="isButtonDisabled33" (click)="IMG()" id="cap">Capture
+        </ion-button>
+      </div>
+      <div *ngIf="add22" style="margin-right: 19px">
+        <div *ngIf="img22">
+          <samp><ion-icon style="font-size: 20px; color: red" name="add-circle-outline"></ion-icon></samp>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img [src]="clickedd" />
+    </div>
+
+  </div>
+
+  <div >
+
+
+    <div style="
+        display: flex;
+        justify-content: space-between;
+        margin-top: 6%;
+      ">
+      <div style="display: flex;">
+        <span style="margin-left: 10px;" class="span"> Post  Img </span>
+        <span *ngIf="post_done" style="color: green; font-size: 21px;  margin-left: 6px; ">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </span>
+        <span *ngIf="post_not_done" style="color: red; font-size: 21px;  margin-left: 6px; ">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+        </span>
+      </div>
+      <div style="margin-left: 30%">
+        <ion-button [disabled]="isButtonDisabled" (click)="captureImage_post()" id="cap">Capture
+        </ion-button>
+      </div>
+      <div *ngIf="add_post" style="margin-right: 19px">
+        <div *ngIf="img_post">
+          <samp><ion-icon (click)="click_to_next_post()" style="font-size: 20px; color: red"
+              name="add-circle-outline"></ion-icon></samp>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img [src]="clickedImage_post" />
+    </div>
+    <div *ngIf="open3_post" style="
+        display: flex;
+        justify-content: space-between;
+        margin-top: 6%;
+      ">
+      <div>
+        <span style="margin-left: 10px;" class="span">Post  Img </span>
+      </div>
+      <div style="margin-left: 30%">
+        <ion-button [disabled]="isButtonDisabled_to" (click)=" capture_post()" id="cap">Capture
+        </ion-button>
+      </div>
+      <div *ngIf="add2_post" style="margin-right: 19px">
+        <div *ngIf="img2_post">
+          <samp><ion-icon (click)="click_to_next2_post()" style="font-size: 20px; color: red"
+              name="add-circle-outline"></ion-icon></samp>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img [src]="secoundimg_post" />
+    </div>
+    <div *ngIf="open4_post" style="
+        display: flex;
+        justify-content: space-between;
+        margin-top: 6%;
+      ">
+      <div>
+        <span style="margin-left: 10px;" class="span">Post  Img </span>
+      </div>
+      <div style="margin-left: 30%">
+        <ion-button [disabled]="isButtonDis" (click)="Image_post()" id="cap">Capture
+        </ion-button>
+      </div>
+      <div *ngIf="add2_post" style="margin-right: 19px">
+        <div *ngIf="img2_post">
+          <samp><ion-icon style="font-size: 20px; color: red" name="add-circle-outline"></ion-icon></samp>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img [src]="threeimg_post" />
+    </div>
+
+  </div>
+
+  <div *ngIf="hidden">
+    <div style="
+        display: flex;
+        justify-content: space-between;
+      ">
+      <div>
+        <span style="margin-left: 10px; font-weight: 500;" class="span"> Service Report</span>
+      </div>
+      <div style="margin-left: 30%">
+        <ion-button [disabled]="isButtonDisabled11" (click)="services_report()" id="cap">Capture
+        </ion-button>
+      </div>
+      <div *ngIf="add" style="margin-right: 19px">
+        <div *ngIf="img">
+          <samp><ion-icon (click)="click_to_next()" style="font-size: 20px; color: red"
+              name="add-circle-outline"></ion-icon></samp>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img [src]="clickedImage" />
+    </div>
+    <div *ngIf="open3" style="
+        display: flex;
+        justify-content: space-between;
+        /* margin-top: 6%; */
+      ">
+      <div>
+        <span style="margin-left: 10px; font-weight: 500;" class="span">Service Report </span>
+      </div>
+      <div style="margin-left: 30%">
+        <ion-button [disabled]="isButtonDisabled22" (click)="services_report()" id="cap">Capture
+        </ion-button>
+      </div>
+    </div>
+    <div>
+      <img [src]="services" />
+    </div>
+  
+  </div>
+
+
+
+  <div style="display: flex;
+   justify-content: space-between;
+   align-items: center;" >
+    <div  style="    margin-left: 3%;
+    color: #000;
+    font-weight: 500;">
+      <span > Digital Service Report</span>
+    </div>
+
+
+    <div   *ngIf="services_not_done"    style="    margin-right: 11%;
+    color: red;
+    font-weight: 600; font-size: 22px;">
+  <ion-icon name="alert-circle-outline"></ion-icon>
+    </div>
+    
+    <div *ngIf="services_done"  style="    margin-right: 11%;
+    color: green;
+    font-weight: 600; font-size: 22px;">
+  <ion-icon name="checkmark-outline"></ion-icon>
+    </div>
+    <div style="    margin-right: 4%;
+    color: #047ac2;
+    font-weight: 600;">
+
+    <ion-button  (click)="report ()" style=" text-transform: none; --background: #047ac2;--border-radius: 10px;">Update</ion-button>
+    </div>
+   </div>
+   <div style=" display: flex;
+   flex-wrap: wrap;
+   justify-content: center; margin-top: 10%;">
+ <div *ngFor="let imgg of imgg" class="services">
+     <ion-row style="background-color: #f4f6f9">
+       
+     <ion-col  style="text-align: -webkit-center; margin: 4px">
+       <ion-avatar>
+         <img  class="img22"  src="{{imgg.Image}}" />
+       </ion-avatar>
+       <a style="font-size: 11px;
+            text-decoration: none;
+            color: #003f88" href="{{imgg.Image}}"> <span >{{imgg.Action}}</span></a>  
+     </ion-col>
+ 
+   </ion-row>
+ </div>
+ </div>
+
+   <!-- <div style="display: flex;
+     
+   justify-content: center;">
+
+
+     <ion-row style="justify-content: center;" *ngFor="let imgg of imgg">
+       <ion-col >
+       
+       <img  class="photo"  src="{{imgg.Image}}"  /> 
+    
+    
+     
+       </ion-col>
+      
+     </ion-row>
+   </div> -->
+
+   <div >
+    <ion-button (click)=" Service_Change_Status()"  [disabled]="!button"
+      [ngClass]="{'gray-button':!button}" class="button22" expand="block">
+   Submit </ion-button>
+  </div>
+
+</ion-content>

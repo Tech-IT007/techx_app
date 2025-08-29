@@ -1,0 +1,95 @@
+
+
+<ion-content style="--background: #fff; --color: #000">
+  <div>
+    <h3 class="h3">Edit Profile</h3>
+    <div class="div">
+      <ion-icon [routerLink]="['/home']" class="icon" name="chevron-back-outline"></ion-icon>
+    </div>
+  </div>
+  <div class="menu-header-bg"></div>
+  <div class="header-content">
+    <img src="/assets/img/boys.jpg" alt="" />
+    <ion-label>
+      <!-- <h2>Deepak chauhan</h2>
+      <p>Deepak@gmail.com</p>
+    -->
+    </ion-label>
+    <!-- <div>
+  <ion-icon class="icon" name="pencil-outline"></ion-icon> 
+</div> -->
+  </div>
+  <div style="margin-top: -13%">
+    <div>
+      <ion-item>
+        <ion-label>Name</ion-label>
+      </ion-item>
+      <ion-input class="input" [(ngModel)]=" UpdateProfile.employee_name" placeholder="Enter Your Name"
+        value="{{impact.Name}}"></ion-input>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label>Email</ion-label>
+      </ion-item>
+      <ion-input class="input" [(ngModel)]=" UpdateProfile.employee_email" placeholder="Enter Your Email"
+        value="{{impact.Email}}"></ion-input>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label>Phone No</ion-label>
+      </ion-item>
+      <ion-input class="input" [(ngModel)]=" UpdateProfile.employee_contact" placeholder="Enter Your Number"
+      value="{{impact.ContactNumber}}"></ion-input>
+    </div>
+    <div>
+      <ion-item>
+        <ion-label>UAN No</ion-label>
+      </ion-item>
+      <ion-input class="input" placeholder="Enter Your UAN No" [(ngModel)]=" UpdateProfile.employee_uan_number"
+        value="{{impact.UANNumber}}"></ion-input>
+    </div>
+    <div>
+      <ion-item>
+        <ion-label>Bank Account Name</ion-label>
+      </ion-item>
+      <ion-input class="input" placeholder="Enter Your Bank Account Name" [(ngModel)]=" UpdateProfile.bank_account_name"
+        value="{{impact.bank_account_name}}"></ion-input>
+    </div>
+    <div>
+      <ion-item>
+        <ion-label>Bank Account No </ion-label>
+      </ion-item>
+      <ion-input class="input" placeholder="Enter Your Bank Account Number" [(ngModel)]=" UpdateProfile.bank_account_number"
+        value="{{impact.BankAccountNumber}}"></ion-input>
+    </div>
+    <div>
+      <ion-item>
+        <ion-label>Aadhar No </ion-label>
+      </ion-item>
+      <ion-input class="input" placeholder="Enter Aadhar No" [(ngModel)]=" UpdateProfile.employee_aadhar_number"
+        value="{{impact.Aadhar}}"></ion-input>
+    </div>
+    <div>
+      <ion-item>
+        <ion-label>PAN No</ion-label>
+      </ion-item>
+      <ion-input class="input" placeholder="Enter Your PAN" [(ngModel)]=" UpdateProfile.employee_pan_number"
+        value="{{impact.PAN}}"></ion-input>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label>City</ion-label>
+      </ion-item>
+      <div *ngIf="impact.City == '' " >
+        <h6 class="phone">Not Set </h6>
+      </div>
+      <div *ngIf="impact.City != '' " >
+        <h6 class="phone">{{impact.City}}</h6>
+      </div>
+    </div>
+    <ion-button class="button" (click)="submit()"> Submit </ion-button>
+  </div>
+</ion-content>

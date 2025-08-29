@@ -1,0 +1,56 @@
+<ion-content style="--background: #fff">
+  <div style="display: flex; ">
+    <div class="div">
+      <ion-icon [routerLink]="['/vendor-new-page']" class="icon" name="chevron-back-outline"></ion-icon>
+    </div>
+    <div style="margin-left: 5%">
+      <h3 class="h3">Convenience Charges</h3>
+    </div>
+  </div>
+  <!-- <div>
+    <ion-button (click)=" addNewItem()" class="button22" expand="block">
+    Add More
+    </ion-button>
+  </div> -->
+  <div *ngFor="let item of items">
+    <ion-card style="box-shadow: none;background: #fff; ">
+      <div style="display: flex; margin-top: 6%; padding: 10px 0px 10px 10px">
+        <h6 style="color: #000; font-weight: 600"> Date</h6>
+        <div style="margin-left: 42%">
+          <h6 style="color: #000; font-weight: 400">{{ currentDate }}</h6>
+        </div>
+      </div>
+      <div style="padding: 5px 0px 10px 10px">
+        <h6 style="font-size: 19px; color: #000">From</h6>
+      </div>
+      <div style="padding: 0px 0px 10px 10px; width: 90%">
+        <ion-input [(ngModel)]="dataToSend.ConvenienceFrom"  style="border: 2px solid whitesmoke" type="text" placeholder="Pleace Enter your place"></ion-input>
+      </div>
+
+      <div style="padding: 5px 0px 10px 10px">
+        <h6 style="font-size: 19px; color: #000">To</h6>
+      </div>
+      <div style="padding: 0px 0px 10px 10px; width: 90%">
+        <ion-input [(ngModel)]="dataToSend.ConvenienceTo" style="border: 2px solid whitesmoke" type="text"
+          placeholder="Pleace Enter your Final place"></ion-input>
+      </div>
+      <div style="padding: 5px 0px 10px 10px">
+        <h6 style="font-size: 19px; color: #000">Amount</h6>
+      </div>
+      <div style="padding: 0px 0px 10px 10px; width: 90%">
+        <ion-input [(ngModel)]="dataToSend.ConvenienceAmount" style="border: 2px solid whitesmoke" type="number" placeholder="Pleace Enter your Amount"></ion-input>
+      </div>
+      <div style="padding: 5px 0px 10px 10px">
+        <h6 style="font-size: 19px; color: #000">Reference / Remarks</h6>
+      </div>
+      <div style="padding: 0px 0px 10px 10px; width: 90%">
+        <ion-input [(ngModel)]="dataToSend.Reference" style="border: 2px solid whitesmoke" type="text" placeholder="Ticket ID or any related remarks"></ion-input>
+      </div>
+      <div>
+        <ion-button (click)=" submit()" class="button" expand="block">
+          Submit
+        </ion-button>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,236 @@
+<ion-header>
+  <ion-toolbar  style="--color: #000; --background :#ffff ;">
+    <ion-back-button slot="start"></ion-back-button>
+    
+    <ion-title>Dashboard </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  
+  <div class="dashboard-heading ">
+    <div>
+      <h5  style="color: #000;">R&M & AMC Breakdown</h5>
+    </div>
+ <div>
+  <h5 class="blinking-text">Total : {{impact.Total}}</h5>
+ </div>
+  
+  </div>
+
+  <ion-card>
+
+  <div class="dashboard-container">
+    <ion-card class="status-card pending-card">
+      <div class="status-header">
+        <h4>Pending</h4>
+      </div>
+      <div class="status-percentage">
+        <ion-card class="percentage-card">
+          <span> {{impact.Pending_percentage}}%</span>
+        </ion-card>
+      </div>
+    </ion-card>
+
+    <ion-card class="status-card closed-card">
+      <div class="status-header">
+        <h4>Closed</h4>
+      </div>
+      <div class="status-percentage">
+        <ion-card class="percentage-card">
+          <span>{{impact.Closed_percentage}}%</span>
+        </ion-card>
+      </div>
+    </ion-card>
+
+    <ion-card class="status-card cancel-card">
+      <div class="status-header">
+        <h4>Cancel</h4>
+      </div>
+      <div class="status-percentage">
+        <ion-card class="percentage-card">
+          <span>{{impact.Cancel_percentage}}%</span>
+        </ion-card>
+      </div>
+    </ion-card>
+  </div>
+
+  <div>
+    <ion-row class="row">
+      <ion-col (click)="sum()">
+        <div class="color" style="background: #FF8C00;" >
+          <div style="width: 25%">
+            <ion-icon   style="font-size: 27px" class="icon" name="construct-outline"></ion-icon>
+         
+          </div>
+          <div class="tick">
+            <h6 > {{impact['Work In Progress']}} </h6>
+            <span style="opacity: 0.6" id="pending" >Wip</span>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col  >
+        <div class="color" style="background: #40b056" (click)="complet()" >
+          <div style="width: 25%">
+            <ion-icon
+            class="icon"
+              style="font-size: 27px"
+              name="checkbox-outline"
+            ></ion-icon>
+          </div>
+          <div class="tick">
+            <h6>{{impact.Closed}}</h6>
+            <span  id="complet" style="opacity: 0.6">Closed</span>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col   >
+        <div class="color" style="background: #FF8C00;" (click)="complet()" >
+          <div style="width: 25%">
+            <ion-icon
+            class="icon"
+              style="font-size: 27px"
+              name="hand-left-outline"
+            ></ion-icon>
+          </div>
+          <div class="tick">
+            <h6>{{impact.Assigned}}</h6>
+            <span  id="complet" style="opacity: 0.6">Assigned</span>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col >
+        <div class="color" style="background: #dc143c" (click)="complet()" >
+          <div style="width: 25%">
+            <ion-icon
+            class="icon"
+              style="font-size: 27px"
+              name="close-circle-outline"
+            ></ion-icon>
+          </div>
+          <div class="tick">
+            <h6>{{impact.Cancel}}</h6>
+            <span  id="complet" style="opacity: 0.6">Cancel</span>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-card>
+
+<div class="dashboard-heading ">
+  <div>
+    <h5  style="color: #000;">PPM Tickets</h5>
+  </div>
+<div>
+<h5 class="blinking-text">Total : {{ppm.Total}}</h5>
+</div>
+
+</div>
+
+<ion-card>
+
+<div class="dashboard-container">
+  <ion-card class="status-card pending-card">
+    <div class="status-header">
+      <h4>Pending</h4>
+    </div>
+    <div class="status-percentage">
+      <ion-card class="percentage-card">
+        <span> {{ppm.Pending_percentage}}%</span>
+      </ion-card>
+    </div>
+  </ion-card>
+
+  <ion-card class="status-card closed-card">
+    <div class="status-header">
+      <h4>Closed</h4>
+    </div>
+    <div class="status-percentage">
+      <ion-card class="percentage-card">
+        <span>{{ppm.Closed_percentage}}%</span>
+      </ion-card>
+    </div>
+  </ion-card>
+
+  <ion-card class="status-card cancel-card">
+    <div class="status-header">
+      <h4>Cancel</h4>
+    </div>
+    <div class="status-percentage">
+      <ion-card class="percentage-card">
+        <span>{{ppm.Cancel_percentage}}%</span>
+      </ion-card>
+    </div>
+  </ion-card>
+</div>
+
+<div>
+  <ion-row class="row">
+    <ion-col (click)="sum()">
+      <div class="color" style="background: #FF8C00;" >
+        <div style="width: 25%">
+          <ion-icon   style="font-size: 27px" class="icon" name="construct-outline"></ion-icon>
+       
+        </div>
+        <div class="tick">
+          <h6 > {{ppm['Work in Progress']}} </h6>
+          <span style="opacity: 0.6" id="pending" >Wip</span>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col  >
+      <div class="color" style="background: #40b056" (click)="complet()" >
+        <div style="width: 25%">
+          <ion-icon
+          class="icon"
+            style="font-size: 27px"
+            name="checkbox-outline"
+          ></ion-icon>
+        </div>
+        <div class="tick">
+          <h6>{{ppm.Closed}}</h6>
+          <span  id="complet" style="opacity: 0.6">Closed</span>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col   >
+      <div class="color" style="background: #FF8C00;" (click)="complet()" >
+        <div style="width: 25%">
+          <ion-icon
+          class="icon"
+            style="font-size: 27px"
+            name="hand-left-outline"
+          ></ion-icon>
+        </div>
+        <div class="tick">
+          <h6>{{ppm.Assigned}}</h6>
+          <span  id="complet" style="opacity: 0.6">Assigned</span>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col >
+      <div class="color" style="background: #dc143c" (click)="complet()" >
+        <div style="width: 25%">
+          <ion-icon
+          class="icon"
+            style="font-size: 27px"
+            name="close-circle-outline"
+          ></ion-icon>
+        </div>
+        <div class="tick">
+          <h6>{{ppm.Cancel}}</h6>
+          <span  id="complet" style="opacity: 0.6">Cancel</span>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+</div>
+</ion-card>
+<ion-button expand="full" (click)="scanCode()">Scan Barcode</ion-button>
+<div *ngIf="scannedData">
+  <p>Scanned Data: {{ scannedData.text }}</p>
+</div>
+
+</ion-content>

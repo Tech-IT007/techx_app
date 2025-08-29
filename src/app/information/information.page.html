@@ -1,0 +1,325 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Profile Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header style="background: #f5f6fb">
+  <ion-card style="
+      box-shadow: none;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 0 6px 0px #cbced1;
+    ">
+    <div style="padding: 20px 0px; border: 1px solid #ccc">
+      <ion-item class="items">
+        <div style="
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+          ">
+          <div>
+            <div *ngIf="obj.Name == ''">
+              <h2 style="
+                  color: black;
+                  font-size: 18px;
+                  margin-bottom: 4px;
+                  margin-top: 0px;
+                ">
+                Not Set
+              </h2>
+            </div>
+            <div *ngIf="obj.Name != ''">
+              <h2 style="
+                  color: black;
+                  font-size: 18px;
+                  margin-bottom: 4px;
+                  margin-top: 0px;
+                ">
+                {{ obj.Name }}
+              </h2>
+            </div>
+
+            <div *ngIf="obj.Email == ''">
+              <h3 style="
+                  color: gray;
+                  font-size: 12px;
+                  margin-top: 6px;
+                  margin-bottom: 0px;
+                ">
+                Not Set
+              </h3>
+            </div>
+            <div *ngIf="obj.Email != ''">
+              <h3 style="
+                  color: gray;
+                  font-size: 12px;
+                  margin-top: 6px;
+                  margin-bottom: 0px;
+                ">
+                {{ obj.Email }}
+              </h3>
+            </div>
+          </div>
+
+          <div>
+            <img class="" src="/assets/img/boys.jpg" style="
+                color: gray;
+                width: 100px;
+                border-radius: 50%;
+                height: 100px;
+              " alt="" />
+          </div>
+        </div>
+      </ion-item>
+    </div>
+  </ion-card>
+</ion-header>
+<ion-content style="background: #f5f6fb">
+  <ion-card style="
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 0 6px 0px #cbced1;
+      padding: 15px 0px;
+    ">
+    <div *ngIf="obj.Email != ''" style="display: flex">
+      <div class="vl"></div>
+
+      <ion-title style="
+          color: #000;
+          padding: 0px;
+          margin-left: 3%;
+          margin-top: 7px;
+          /* font-weight: 600; */
+        ">
+        Address Proof
+      </ion-title>
+    </div>
+    <div class="space">
+      <div>
+        <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+          Aadhar Number :
+          <div *ngIf="obj.Aadhar  == ''">
+            <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+              Not Set 
+              </h5>
+          </div>
+          <div *ngIf="obj.Aadhar   != ''">
+            <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+              {{obj.Aadhar}}
+              </h5>
+          </div>
+        </h4>
+      </div>
+    </div>
+    <div class="space">
+      <div>
+        <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+          Pan Number :
+
+          <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+          {{obj.PAN}}
+          </h5>
+        </h4>
+      </div>
+    </div>
+  </ion-card>
+  <ion-card style="
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 0 6px 0px #cbced1;
+      padding: 15px 0px;
+    ">
+    <div style="display: flex">
+      <div class="vl"></div>
+      <ion-title style="
+          color: #000;
+          padding: 0px;
+          margin-left: 3%;
+          margin-top: 7px;
+          /* font-weight: 600; */
+        ">
+        Department
+      </ion-title>
+    </div>
+    <div class="space">
+      <div>
+        <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+          Department:
+          <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+            Not Set
+          </h5>
+        </h4>
+      </div>
+    </div>
+  </ion-card>
+
+  <ion-card style="
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 0 6px 0px #cbced1;
+      padding: 15px 0px;
+    ">
+    <div style="display: flex">
+      <div class="vl"></div>
+      <ion-title style="
+          color: #000;
+          padding: 0px;
+          margin-left: 3%;
+          margin-top: 7px;
+          /* font-weight: 600; */
+        ">
+        Personal Info
+      </ion-title>
+    </div>
+    <div>
+      <div class="space">
+        <div>
+          <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+            Name:
+            <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+              {{ obj.Name }}
+            </h5>
+          </h4>
+        </div>
+      </div>
+      <div class="space">
+        <div *ngIf="obj.ContactNumber == ''">
+          <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+            Contact Number :
+            <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+              Not Set
+            </h5>
+          </h4>
+        </div>
+      </div>
+      <div class="space">
+        <div *ngIf="obj.ContactNumber != ''">
+          <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+            Contact Number :
+            <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+              {{ obj.ContactNumber}}
+            </h5>
+          </h4>
+        </div>
+      </div>
+    </div>
+    <div class="space">
+      <div>
+        <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+          UAN Number:
+          <div *ngIf="obj.UANNumber == ''">
+            <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+              Not Set
+            </h5>
+          </div>
+          <div *ngIf="obj.UANNumber != ''">
+            <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+              {{ obj.UANNumber }}
+            </h5>
+          </div>
+        </h4>
+      </div>
+    </div>
+  </ion-card>
+
+  <ion-card style="
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 0 6px 0px #cbced1;
+      padding: 15px 0px;
+    ">
+    <div style="display: flex">
+      <div class="vl"></div>
+      <ion-title style="
+          color: #000;
+          padding: 0px;
+          margin-left: 3%;
+          margin-top: 7px;
+          /* font-weight: 600; */
+        ">
+        Supervisor
+      </ion-title>
+    </div>
+    <div class="space">
+      <div>
+        <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+          Supervisor:
+          <div *ngIf="obj.Supervisor == ''">
+            <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+              Not Set
+            </h5>
+          </div>
+          <div *ngIf="obj.Supervisor != ''">
+            <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+              {{ obj.SupervisorName}}
+            </h5>
+          </div>
+        </h4>
+      </div>
+    </div>
+  </ion-card>
+
+  <!-- <ion-card style="
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 0 6px 0px #cbced1;
+      padding: 15px 0px;
+    ">
+    <div style="display: flex">
+      <div class="vl"></div>
+      <ion-title style="
+          color: #000;
+          padding: 0px;
+          margin-left: 3%;
+          margin-top: 7px;
+          /* font-weight: 600; */
+        ">
+        More Info
+      </ion-title>
+    </div>
+    <div class="space">
+      <div>
+        <div>
+          <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+            CreatedBy:
+            <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+              {{obj.CreatedBy }}
+            </h5>
+          </h4>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+          Created Date:
+          <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+          {{obj.CreatedDate}}
+          </h5>
+        </h4>
+      </div>
+    </div>
+    <div class="space">
+      <div>
+        <h4 style="margin-left: 7px; color: #000; font-size: 14px">
+          Created Time:
+          <h5 style="margin-left: 56%; font-size: 14px; margin-top: -20px">
+            {{obj.CreatedTime}}
+          </h5>
+        </h4>
+      </div>
+    </div>
+  </ion-card> -->
+  <ion-item>
+    <ion-label>Voice Greeting</ion-label>
+    <ion-toggle [(ngModel)]="isMuted" (ionChange)="toggleMute()"></ion-toggle>
+  </ion-item>
+  <div>
+    <ion-button class="button" expand="block" (click)=" submit()">
+      Edit Your Profile
+    </ion-button>
+  </div>
+</ion-content>

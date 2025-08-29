@@ -1,0 +1,60 @@
+<ion-content [fullscreen]="true">
+  <!-- <img style="height: 99%;  width: 100%;" src="/assets/img/login.png" alt=""> -->
+  <div>
+<img  class="aari" src="/assets/img/aari.png" alt="">
+  </div>
+  <div>
+    <img  class="blub" src="/assets/img/bulb.png" alt="">
+  </div>
+  <div class="tech">
+   <img src="/assets/img/logo.jpg">
+ </div>
+ 
+ <!-- <div>
+
+  <h5 class="home"></h5> 
+
+ </div> -->
+ <div style="text-align: center;">
+
+  <ion-label style=" color: gray;"> Quick . Affordable . Trusted</ion-label>
+
+</div>
+
+<form >
+ <div class="input">
+
+ <ion-input class="input1"  placeholder=" Username" [(ngModel)]="userdetails.username" name="name" ></ion-input>
+ </div>
+ <div class="input">
+  <ion-icon class="eye"  (click)="togglePasswordVisibility()" name="eye-outline"></ion-icon>
+  <ion-input
+    [type]="showPassword ? 'text' : 'password'"
+    class="input1"
+    placeholder="Password"
+    [(ngModel)]="userdetails.password"
+    name="password"
+  ></ion-input>
+</div>
+
+ <div>
+   <ion-button  class="button" expand="block" (click)=" submit()"> Submit </ion-button>
+ </div>
+
+</form>
+<div>
+  <img  class="accc" src="/assets/img/accc.png" alt="">
+</div>
+<div  style="margin-top: -20%;">
+ <img class="brush" src="/assets/img/brush.png">
+</div>
+<div >
+  <img class="jharu"  src="/assets/img/jharu pocha.png">
+ </div>
+
+ <!-- <ion-button  [routerLink]="['/location']"  class="skip">skip</ion-button>   -->
+
+
+
+
+</ion-content>

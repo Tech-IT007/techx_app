@@ -1,0 +1,74 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content style="--background: #fff">
+  <div>
+    <h3 class="h3">Booking Infomation</h3>
+    <div class="div">
+      <ion-icon routerLink="/home" class="icon" name="chevron-back-outline"></ion-icon>
+    </div>
+  </div>
+  <div *ngIf="show" style="text-align: center; margin-top: 28%">
+    <img src="/assets/img/opps.jpg" alt="" />
+    <h2 style="font-weight: bold">There Are No Tickets Found</h2>
+  </div>
+
+  <div>
+    <!-- <img class="" src="assets/img/acc.jpg" alt=""> -->
+  </div>
+  <!-- <img
+    style="width: 11%; border-radius: 50%; height: 7%"
+    src="assets/img/boys.jpg"
+    alt=""
+  /> -->
+  <div style="display: flex; justify-content: space-between;">
+    <div>
+      <h4 style="margin-left: 7px; color: #000">{{ impact.Name }}</h4>
+    </div>
+    <!-- <div style=" margin-right: 20%;">
+      <h4 style= "color: #047ac2;; font-weight: 600;">xyz</h4>
+    </div> -->
+  </div>
+
+
+  <div>
+    <ion-card style="box-shadow: none; background: #fff">
+      <h4 class="serv">Services Name</h4>
+      <h5 class="plum">{{ impact.Service_name }}</h5>
+      <h4 class="serv">Booking Date</h4>
+      <h5 class="plum">{{ impact.BookingDate }}</h5>
+
+      <h4 class="serv">Booking ID</h4>
+      <h5 class="plum">{{ impact.BookingID}}</h5>
+      <h4 class="serv">Phone Number</h4>
+      <h5 class="plum">{{ impact.Phone }}</h5>
+      <h4 class="serv">Email</h4>
+      <h5 class="plum">{{ impact.Email }}</h5>
+    </ion-card>
+  </div>
+
+  <div>
+    <ion-card style="box-shadow: none; background: #fff; margin-top: -18px">
+      <h4 class="serv">Address</h4>
+      <h5 class="plum">{{ impact.Customer_address }}</h5>
+    </ion-card>
+  </div>
+  <ion-card style="box-shadow: none; background: #fff">
+    <!-- <h4 class="serv">Assigned To </h4>
+    <h5 class="plum">{{ impact.EmployeeName}}</h5>  -->
+    <h4 class="serv">Status</h4>
+    <h5 class="plum">{{ impact.Status}}</h5>
+  </ion-card>
+  <div>
+  <div *ngIf="Start_work" >
+ <ion-button (click)=" route_to_profile_answer_screen(BookingID)" [ngClass]="{'gray-button':!button}"class="button" expand="block" >Start Work </ion-button >
+</div>
+<div  *ngIf="complet_work" >
+  <ion-button (click)=" route_to_profile_answer_screen(BookingID)" [disabled]="!button"  [ngClass]="{'gray-button':!button}"class="button" expand="block" >Complet Work </ion-button >
+ </div>
+ <div  *ngIf="WIP" >
+  <ion-button (click)=" route_to_profile(BookingID)"  [ngClass]="{'gray-button':!button}"class="button" expand="block" >Generate OTP for Closure </ion-button >
+ </div>
+  </div>
+</ion-content>

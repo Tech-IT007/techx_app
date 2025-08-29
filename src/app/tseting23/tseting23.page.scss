@@ -1,0 +1,182 @@
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; /* Keep cards in a single row */
+  gap: 10px; /* Adjust gap to reduce spacing on small screens */
+  margin-top: 6px;
+}
+
+.status-card {
+  flex: 1; /* Ensure equal space for each card */
+  max-width: 32%; /* Set maximum width for each card */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  min-width: 100px; /* Prevent the cards from shrinking too much */
+}
+.dashboard-heading {
+
+  display: flex;
+  justify-content: space-between;
+  color: #4682b4;
+}
+
+.status-card:hover {
+  transform: translateY(-5px);
+}
+
+.status-header {
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.status-header h4 {
+  margin: 0;
+  font-size: 1em; /* Reduce font size for better visibility on small screens */
+  font-weight: bold;
+}
+
+.status-percentage {
+  padding-left: 14%; /* Adjust padding for smaller cards */
+}
+
+.percentage-card {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  width: 60px;
+  margin-left: -5px;
+}
+
+.percentage-card span {
+  font-size: 1.2em; /* Slightly reduce font size */
+  font-weight: bold;
+  color: #333;
+}
+
+.pending-card {
+  background-color: #FF8C00
+}
+
+.closed-card {
+  background-color: #4caf50;
+}
+
+.cancel-card {
+  background-color: #dc143c;
+}
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 768px) {
+  .status-card {
+    max-width: 30%; /* Adjust for medium screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .status-card {
+    max-width: 30%; /* Adjust for smaller screens */
+    min-width: 80px; /* Ensure visibility on small screens */
+  }
+
+  .status-header h4 {
+    font-size: 0.9em; /* Further reduce font size for smaller screens */
+  }
+
+  .percentage-card span {
+    font-size: 1em; /* Adjust percentage font size for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .status-card {
+    max-width: 30%;
+    min-width: 20%; /* Ensure the cards fit in smaller screens */
+  }
+
+  .status-header h4 {
+    font-size: 0.8em; /* Reduce header font size further */
+  }
+
+  .percentage-card span {
+    font-size: 19px;; /* Reduce percentage font size further */
+  }
+}
+.card {
+  border-radius: 30px;
+  --background: -webkit-linear-gradient(#fff 50%, #fff 50%);
+  // height: 93%;
+  bottom: 0%;
+  // animation: glow 100ms infinite;
+  box-shadow: none;
+}
+
+
+/* Ion Row Styling */
+.row {
+  margin-top: 5px;
+}
+
+.color {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.color:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tick {
+  margin-left: 15px;
+}
+
+.tick h6 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.tick span {
+  font-size: 1em;
+  color: #fff;
+}
+
+ion-col {
+  flex: 1;
+  max-width: 48%;
+}
+
+
+  ion-col {
+    max-width: 100%;
+    margin-bottom: 0px;
+  }
+
+
+  ion-content {
+    --padding-top: 0px;
+  }
+
+  .blinking-text {
+    animation: blinker 1s linear 3; /* Blinks for 5 cycles */
+
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+.icon{
+  color: #fff;
+}

@@ -1,0 +1,48 @@
+
+
+<ion-content style="--background: #fff;">
+  <div>
+    <h3 class="h3">Punch IN </h3>
+    <div class="div">
+      <ion-icon
+        routerLink="/vendor-new-page"
+        class="icon"
+        name="chevron-back-outline"
+      ></ion-icon>
+    </div>
+  </div>
+<div style="display: flex; justify-content: center;     padding: 16px;
+margin-top: 11%;">
+<div>
+ <span style="color: #000;">Time :</span>
+</div>
+<div style=" margin-left: 4%;
+font-size: 18px;
+font-weight: 600;
+color: #000; ">
+<span>{{currentTime}} </span>
+</div>
+
+</div>
+<div style="display: flex;
+justify-content: center;">
+<div style="margin-right: 3%;">
+  <h6 style="color: #000;">Location :</h6>
+</div>
+<!-- <div>
+  <h6 style="font-weight: 600;color: #000; "> Gary Global Solution</h6> 
+</div> -->
+</div>
+
+<div style="text-align: center;
+color: gray;">
+  <p style="margin-left: 16px; margin-right: 16px;"> {{address}} </p>
+</div>
+<div *ngIf="clicked" style="text-align: center;">
+  <img [src]="clicked" alt="Captured Image" />
+</div>
+
+<div>
+  <ion-button  (click)="attdence_in()"  class="button" expand="block"> Submit </ion-button>
+</div>
+</ion-content>

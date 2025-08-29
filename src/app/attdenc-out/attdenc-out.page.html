@@ -1,0 +1,73 @@
+
+
+<ion-content style="--background: #fff;
+--color: #000;"> 
+  <div>
+    <h3 class="h3">Punch Out </h3>
+    <div class="div">
+      <ion-icon
+        routerLink="/vendor-new-page"
+        class="icon"
+        name="chevron-back-outline"
+      ></ion-icon>
+    </div>
+  </div>
+
+   
+
+<div  *ngIf="time"    style="display: flex; justify-content: center;     padding: 16px;
+margin-top: 11%;">
+<div>
+ <span>Time :</span>
+</div>
+<div style=" margin-left: 4%;
+font-size: 18px;
+font-weight: 600;
+color: #000; ">
+<span>{{currentTime}}</span>
+</div>
+
+</div>
+<div   *ngIf="time2" style="display: flex; justify-content: center;     padding: 16px;
+margin-top: 11%;">
+<div>
+ <span>Time :</span>
+</div>
+<div style=" margin-left: 4%;
+font-size: 18px;
+font-weight: 600;
+color: #000; ">
+<span>{{temp}}</span>
+</div>
+
+</div>
+
+
+
+
+<div style="display: flex;
+justify-content: center;">
+<div style="margin-right: 3%;">
+  <h6>Location :</h6>
+</div>
+<!-- <div>
+  <h6 style="font-weight: 600;color: #000; "> Gary Global Solution</h6> 
+</div> -->
+</div>
+
+<div style="text-align: center;
+color: gray;">
+  <p style="margin-left: 16px;
+  margin-right: 16px;"> {{address}} </p>
+</div>
+<div *ngIf="clicked" style="text-align: center;">
+  <img [src]="clicked" alt="Captured Image" />
+</div>
+<div *ngIf="show">
+  <ion-button  (click)="  attdence_out() " class="button" expand="block" routerLink="/vendor-new-page"> Submit </ion-button>
+</div>
+<div  *ngIf="hidd">
+  <ion-button [disabled]="!button"
+  [ngClass]="{'gray-button':!button}"   class="button" expand="block" routerLink="/vendor-new-page"> Your Attendance Is Already Marked </ion-button>
+</div>
+</ion-content>

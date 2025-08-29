@@ -1,0 +1,61 @@
+
+<ion-content style="--background: #fff;">
+  
+<div>
+  <h3 class="h3">Attendance Details</h3>
+  <div class="div">
+    <ion-icon
+      [routerLink]="['/vendor-new-page']"
+      class="icon"
+      name="chevron-back-outline"
+    ></ion-icon>
+  </div>
+</div>
+<div>
+    <H4 style= "  background: #fff; color: #000; font-weight: 500;margin-left: 3%;">{{use.EmployeeName}}</H4>
+</div>
+  <div style="color: #000;">
+    <ion-card-content>
+      <div style="display: flex; justify-content: space-between">
+        <div>
+          <h5>In Time</h5>
+        </div>
+        <div *ngIf="users.InTime == ''">
+          <h5>Not Set</h5>
+        </div>
+        <div *ngIf="users.InTime != ''">
+          <h5>{{users.InTime }}</h5>
+        </div>
+      </div>
+    </ion-card-content>
+    <ion-card-content>
+      <div style="display: flex; justify-content: space-between">
+        <div>
+          <h5>Out Time</h5>
+        </div>
+        <div *ngIf="users.OutTime == ''" >
+          <h5>Not Set</h5>
+        </div>
+        <div *ngIf="users.OutTime != ''">
+          <h5>{{users.OutTime }}</h5>
+        </div>
+      </div>
+    </ion-card-content>
+    <ion-card-content>
+      <div style="display: flex; justify-content: space-between">
+        <div>
+          <h5>Record Date
+          </h5>
+        </div>
+        <div *ngIf="users.RecordDate == '' ">
+          <h5> Not Set </h5>
+        </div>
+        <div *ngIf="users.RecordDate != '' " >
+          <h5>{{users.RecordDate}}</h5>
+        </div>
+      </div>
+    </ion-card-content>
+
+  </div>
+
+</ion-content>

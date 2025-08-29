@@ -1,0 +1,52 @@
+
+<ion-header [translucent]="true">
+  <div>
+    <h3 class="h3">Ticket Information</h3>
+    <div class="div">
+      <ion-icon routerLink="/vendor-new-page" class="icon" name="chevron-back-outline"></ion-icon>
+    </div>
+  </div>
+</ion-header>
+<ion-content>
+
+  <div class="container" style="margin-top: 10%;">
+    <img src="assets/img/tickets.gif" alt="Animated GIF" class="animated-gif"/>
+  </div>
+  <ion-grid>
+  <ion-row style="justify-content: center;">
+    <ion-col size="6" >
+    <ion-card>
+   <img routerLink="/corprate-tickets" src="/assets/img/All_Tickets.jpg" alt="" ><p style="padding: 0px 20px;">All Corporate Tickets  </p>
+  </ion-card>
+  </ion-col>
+  <ion-col size="6" *ngIf="display_city_tickets  == '1'">
+    <ion-card>
+   <img (click)="routing_page_City ()" src="/assets/img/City_Tickets.png" alt="" ><p>City Tickets</p>   
+  </ion-card>
+  </ion-col>
+  <ion-col size="6" *ngIf="display_AM_tickets  == '1'">
+    <ion-card>
+   <img  (click)="routing_page_account_tickets ()" src="/assets/img/Account_Tickets.png" alt="" ><p style="padding:0px 20px;">Acc. Branch Corporate Tickets</p>
+  </ion-card>
+  </ion-col>
+  <ion-col size="6" *ngIf="display_BAM_tickets == '1'">
+    <ion-card>
+   <img (click)="routing_page_Branch_Manager ()" src="/assets/img/Branch_Tickets.png" alt="" ><p style="padding:0px 20px;">Acc Branch Tickets  </p>
+  </ion-card>
+  </ion-col>
+  <ion-col size="6">
+    <ion-card >
+      
+   <img routerLink="/ppm-tickets" src="/assets/img/ppm_tickets.png" alt="" ><p >All PPM Tickets </p>
+  </ion-card>
+  </ion-col>
+  <ion-col size="6">
+    <ion-card >
+      
+   <img routerLink="/ppm-account-branch" src="/assets/img/ppmm.png" alt="" ><p style="padding:0px 20px;">Acc. Branch PPM Tickets</p>
+  </ion-card>
+  </ion-col>
+  </ion-row>
+
+  </ion-grid>
+</ion-content>
