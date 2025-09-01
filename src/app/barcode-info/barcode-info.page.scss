@@ -1,0 +1,97 @@
+ion-content {
+  --background: #f9f9f9;
+  padding: 16px;
+
+  // Center logo and give margin
+  img {
+    display: block;
+    margin: 10px auto 20px;
+    max-width: 140px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 9px;
+  }
+}
+
+/* Styling for branch & asset selector items */
+ion-item {
+  --background: #fff;
+  --border-color: #e0e0e0;
+  border-radius: 12px;
+  margin: 12px 0;
+  padding: 6px 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  ion-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  ion-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #027dc1;
+  }
+
+  ion-icon {
+    font-size: 18px;
+    color: #888;
+    margin-left: 8px;
+  }
+}
+
+/* Continue button styling */
+ion-button {
+  margin-top: 20px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(2, 125, 193, 0.3);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    filter: brightness(1.05);
+    transform: scale(1.02);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    box-shadow: none;
+  }
+}
+
+/* Improve action sheet header */
+.action-sheet-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #027dc1;
+  text-align: center;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 600px) {
+  ion-item {
+    margin: 10px 0;
+    padding: 8px;
+  }
+
+  ion-label {
+    font-size: 14px;
+  }
+
+  ion-text {
+    font-size: 13px;
+  }
+
+  ion-button {
+    font-size: 15px;
+    height: 42px;
+  }
+}

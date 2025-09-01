@@ -19,13 +19,15 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { ClintTicketsEditComponent } from './clint-tickets-edit/clint-tickets-edit.component';
 // geolocation and native-geocoder
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 // import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 @NgModule({
   declarations: [AppComponent,ClintTicketsEditComponent,],
   imports: [BrowserModule,IonicModule.forRoot(),     IonicStorageModule.forRoot(),   Ng2SearchPipeModule,  ReactiveFormsModule,  FormsModule , CalendarModule , AppRoutingModule, NgxOtpInputModule, HttpClientModule, NgxUiLoaderModule, 
@@ -40,7 +42,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     BarcodeScanner,
     TextToSpeech,
     LocationAccuracy,
-  
+  InAppBrowser ,
     Camera,
     SplashScreen,
     { provide:

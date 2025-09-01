@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar style="--background: #027dc1; --color: #fff;">
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Barcode Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div style="text-align: center;">
+    <img style="width: 50%;" src="assets/img/logo.jpg" alt="">
+  </div>
+  <!-- Branch Selector -->
+  <ion-item button (click)="openBranchSelector()">
+    <ion-label style="font-size: 14px;">Select Your Branch</ion-label>
+    <ion-text slot="end" color="primary">
+      {{ selectedBranchName || 'Select Branch' }}
+    </ion-text>
+    <ion-icon name="chevron-down-outline" slot="end"></ion-icon>
+  </ion-item>
+
+  <!-- Asset Selector -->
+  <ion-item button (click)="openAssetSelector()" [disabled]="!selectedBranch">
+    <ion-label style="font-size: 14px;">Select Your Asset</ion-label>
+    <ion-text slot="end" color="primary">
+      {{ selectedAssetName || 'Select Asset' }}
+    </ion-text>
+    <ion-icon name="chevron-down-outline" slot="end"></ion-icon>
+  </ion-item>
+
+  <!-- Continue Button -->
+  <div class="ion-text-center ion-margin-top">
+    <ion-button  style="--background: #027dc1; --color: #fff;" expand="block" [disabled]="!selectedAsset" (click)="continue()">
+      Continue
+    </ion-button>
+  </div>
+
+</ion-content>

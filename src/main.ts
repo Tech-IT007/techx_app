@@ -5,14 +5,13 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 // Register Alan button web component (loader)
-import { defineCustomElements as alanBtnDefineCustomElements } from '@alan-ai/alan-button/dist/loader';
 
+
+defineCustomElements(window);
 if (environment.production) {
   enableProdMode();
 }
 
-// bind alan web component to window
-alanBtnDefineCustomElements(window);
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)

@@ -182,115 +182,86 @@ export class CopCurrentTicketsPage implements OnInit {
       // this.Asginchange()
     })
   }
-  Getdata() {
-    this.ngxService.start()
+Getdata() {
+  this.ngxService.start();
 
-    var url = "https://techxpertindia.in/api/get_corporate_ticket_detail.php";
-    return this.http
-      .post(url, this.dataToSend, {
-        headers: new HttpHeaders({ "content-Type": "application/json" }),
-      })
-      .subscribe((response) => {
-        console.log(response);
-        this.ID = response
-        console.log(this.ID)
-        this.ID = this.ID.data.ID
-        this.ID = localStorage.setItem("ID", this.ID)
-        this.ID = localStorage.getItem("ID")
-        // // alert(this.ID)
-        this.Branch_Tickets_Id = response
-        this.Branch_Tickets_Id = this.Branch_Tickets_Id.data.BranchID
-        //  alert(this.Branch_Tickets_Id)
-        this.Branch_Tickets_Id = localStorage.setItem("branch_tickets_id", this.Branch_Tickets_Id)
-        this.Branch_Tickets_Id = localStorage.getItem("branch_tickets_id")
-        console.log(this.Branch_Tickets_Id)
-        this.impact = response;
-        this.impact = this.impact.data;
-        console.log(this.impact);
-        this.temp = response
-        this.temp = this.temp.data.length
-        console.log(this.temp)
+  const url = "https://techxpertindia.in/api/get_corporate_ticket_detail.php";
+  this.http.post(url, this.dataToSend, {
+    headers: new HttpHeaders({ "content-Type": "application/json" }),
+  }).subscribe(
+    (response: any) => {
+      console.log(response);
 
-        if (this.temp == "0") {
-          this.show = true
+      // Save Ticket ID
+      this.ID = response.data.ID;
+      localStorage.setItem("ID", this.ID);
 
+      // Save Branch Ticket ID
+      this.Branch_Tickets_Id = response.data.BranchID;
+      localStorage.setItem("branch_tickets_id", this.Branch_Tickets_Id);
+
+      // Ticket Details
+      this.impact = response.data;
+      this.temp = this.impact.length;
+
+      // Show/hide when no data found
+      this.show = this.temp === 0;
+
+      // Get status & other details
+      this.status = response.data.Status;
+      this.status_type = response.data.Type;
+      this.approvel = response.data.QuoteApproved;
+      this.date = response.data.DueDate;
+
+      // Store Due Date
+      localStorage.setItem("Date", this.date);
+      this.OTP_Genrate.DueDate = this.date;
+
+      // Assigned employee
+      this.emp = response.data.AssignedTo;
+      localStorage.setItem("empl_ID", this.emp);
+      this.OTP_Genrate.AssignedTo = this.emp;
+
+      // Reset all button flags
+      this.Change_Ticket_Status = false;
+      this.Start_Work = false;
+      this.closer = false;
+      this.submit_For_closer = false;
+      this.AMC_approvel_status = false;
+
+      /** ----------------------------
+       * BUTTON VISIBILITY LOGIC
+       * ---------------------------- */
+
+      if (this.status === 'Work In Progress') {
+        this.submit_For_closer = true;
+      } 
+      else if (this.status === 'Closed') {
+        this.closer = true;
+      } 
+      else if (this.status === 'Raised') {
+        this.Change_Ticket_Status = true;
+      } 
+      else if (this.status === 'Assigned') {
+        if (this.status_type !== "AMC" && this.approvel === "0") {
+          this.AMC_approvel_status = true;
+          this.Start_Work = false;
         } else {
-          this.show = false
-        }
-        this.  status = response
-        this.  status = this.  status.data.Status
-        console.log(this.  status)
-        this.serve_status = response
-        this.serve_status = this.serve_status.data.Status
-        console.log(this.serve_status)
-        this.status_type = response
-        this.status_type = this.status_type.data.Type
-        console.log(this.status_type)
-        this.approvel = response
-        this.approvel = this.approvel.data.QuoteApproved
-        console.log(this.approvel)
-        this.date = response
-        this.date = this.date.data.DueDate
-        console.log(this.date)
-        if (this.status == 'Work In Progress') {
-          this.submit_For_closer = true
-          this.closer = false;
-          this.Start_Work = false;
-          this.Change_Ticket_Status = false;
-    
-        }
-        if (this. status == 'Closed') {
-          this.closer = true;
-          this.submit_For_closer = false;
-          this.Start_Work = false;
-          this.Change_Ticket_Status = false;
-        }
-        if (this.status == 'Raised') {
-          this.Change_Ticket_Status = true;
-          this.closer = false;
-          this.submit_For_closer = false;
-          this.Start_Work = false;
-          this.AMC_approvel_status = false;
-        }
-        if (this.status == 'Assigned') {
           this.Start_Work = true;
-          this.Change_Ticket_Status = false;
-          this.closer = false;
-          this.submit_For_closer = false;
-            if(this.status_type != "AMC" ){
-              // alert(this.status_type)
-
-              if(this.approvel == "0"){
-                console.log(this.approvel)
-                this.AMC_approvel_status = true; 
-                this.Start_Work = false;
-              }
-            }else{
-    
-              this.Start_Work = true;
-            }
-
         }
+      }
 
-        this.date = localStorage.setItem("Date", this.date)
-        this.date = localStorage.getItem("Date")
-        this.OTP_Genrate.DueDate = this.date
-        console.log(this.date)
-        this.emp = response
-        this.emp = this.emp.data.AssignedTo
-        console.log(this.emp)
-        this.emp = localStorage.setItem("empl_ID", this.emp)
-        this.emp = localStorage.getItem("empl_ID")
-        console.log(this.emp)
-        this.OTP_Genrate.AssignedTo = this.emp
-        this.ngxService.stop()
-        this.image = response
-        this.image = this.image.ticket_image
-        // console.log(this.image)
-      });
+      this.image = response.ticket_image;
 
+      this.ngxService.stop();
+    },
+    (error) => {
+      console.error("API Error:", error);
+      this.ngxService.stop();
+    }
+  );
+}
 
-  }
 
 
 
@@ -396,12 +367,15 @@ export class CopCurrentTicketsPage implements OnInit {
       this.ngxService.stop()
     } else if (rolesArray.includes("Technician") || rolesArray.includes("Vendor")) {
       var url = "https://techxpertindia.in/api/change_ticket_status.php";
-      return this.http.post(url, this.OTP_Genrate).subscribe((data) => {
-        console.log(data)
-        this.router.navigate(['/verfication-otp'], navigationExtras);
-        this.ngxService.stop()
-        console.log('Role does not include "Technician" or "Supervisor", no navigation performed.');
-      })
+      // return this.http.post(url, this.OTP_Genrate).subscribe((data) => {
+      //   console.log(data)
+    
+      //   // this.router.navigate(['/verfication-otp'], navigationExtras);
+      //    this.router.navigate(['/entry-checklist'], navigationExtras);
+      //   this.ngxService.stop()
+      //   console.log('Role does not include "Technician" or "Supervisor", no navigation performed.');
+      // })
+           this.router.navigate(['/entry-checklist'], navigationExtras);
 
       // Optionally handle a different scenario if needed
     } else {

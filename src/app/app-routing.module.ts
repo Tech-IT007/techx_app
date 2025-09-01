@@ -356,6 +356,22 @@ const routes: Routes = [
     path: 'panels',
     loadChildren: () => import('./panels/panels.module').then( m => m.PanelsPageModule)
   },
+  {
+    path: 'barcode-info',
+    loadChildren: () => import('./barcode-info/barcode-info.module').then( m => m.BarcodeInfoPageModule)
+  },
+  {
+    path: 'barcode-scanning',
+    loadChildren: () => import('./barcode-scanning/barcode-scanning.module').then( m => m.BarcodeScanningPageModule)
+  },
+  {
+    path: 'mismatch-modal',
+    loadChildren: () => import('./mismatch-modal/mismatch-modal.module').then( m => m.MismatchModalPageModule)
+  },
+  {
+    path: 'entry-checklist',
+    loadChildren: () => import('./entry-checklist/entry-checklist.module').then( m => m.EntryChecklistPageModule)
+  },
 
 ];
 

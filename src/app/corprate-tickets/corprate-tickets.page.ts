@@ -212,9 +212,12 @@ if (this.role.includes ("Account Manager")){
 
   route_to_profile_answer_screen(userID) {
     this.BookingID = userID;
+    localStorage.setItem("CameraID",this.BookingID)
     let navigationExtras: NavigationExtras = {
       queryParams: {
         BookingID: this.BookingID
+    
+
       }
     }
     this.router.navigate(['cop-current-tickets'], navigationExtras);

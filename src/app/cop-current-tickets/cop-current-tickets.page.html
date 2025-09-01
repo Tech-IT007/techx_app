@@ -144,18 +144,47 @@
   </ion-row>
 
   <!-- Action Buttons -->
-  <div class="button-footer">
-    <ion-button expand="block" *ngIf="Change_Ticket_Status" (click)="route_to_profile_answer_screen(BookingID)" color="primary">
-      Change Ticket Status
-    </ion-button>
-    <ion-button expand="block" *ngIf="Start_Work" [ngClass]="{ 'gray-button': !button }" (click)="route_to_profile_answer_screen(BookingID)" color="success">
-      Start Work
-    </ion-button>
-    <ion-button expand="block" *ngIf="closer" [disabled]="!button" class="gray-button">
-      This Ticket has Been Closed
-    </ion-button>
-    <ion-button expand="block" *ngIf="submit_For_closer" routerLink="/technician" color="secondary">
-      View Details
-    </ion-button>
-  </div>
+<div class="button-footer">
+
+  <!-- Change Ticket Status Button -->
+  <ion-button
+    expand="block"
+    color="primary"
+    *ngIf="Change_Ticket_Status"
+    [disabled]="!button"
+    (click)="route_to_profile_answer_screen(BookingID)">
+    Change Ticket Status
+  </ion-button>
+
+  <!-- Start Work Button -->
+  <ion-button
+    expand="block"
+    color="success"
+    *ngIf="Start_Work"
+
+    (click)="route_to_profile_answer_screen(BookingID)">
+    Start Work
+  </ion-button>
+
+  <!-- Ticket Closed Button -->
+  <ion-button
+    expand="block"
+    color="medium"
+    *ngIf="closer"
+    disabled>
+    This Ticket has Been Closed
+  </ion-button>
+
+  <!-- View Details Button -->
+  <ion-button
+    expand="block"
+    color="secondary"
+    *ngIf="submit_For_closer"
+    routerLink="/technician">
+    View Details
+  </ion-button>
+
+</div>
+
+
 </ion-content>

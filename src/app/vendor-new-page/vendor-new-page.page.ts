@@ -76,7 +76,7 @@ export class VendorNewPagePage implements OnInit {
     this.Status_role()
       this.att()
       this.vendor_roles()
-      this.speakWelcome()
+      // this.speakWelcome()
   }
   ngOnInit() {
     this.role = localStorage.getItem('role');
@@ -401,16 +401,16 @@ async speakWelcome() {
 
 
 async lougout() {
-    try {
-    // Speak only English
-    await this.tts.speak({
-      text: 'Thank you for using Techxpert, see you soon!',
-      locale: 'en-US',
-      rate: 0.9
-    });
-  } catch (error) {
-    console.error('TTS Error:', error);
-  }
+  //   try {
+  //   // Speak only English
+  //   await this.tts.speak({
+  //     text: 'Thank you for using Techxpert, see you soon!',
+  //     locale: 'en-US',
+  //     rate: 0.9
+  //   });
+  // } catch (error) {
+  //   console.error('TTS Error:', error);
+  // }
   this.router.navigateByUrl("/login")
   localStorage.clear()
 }

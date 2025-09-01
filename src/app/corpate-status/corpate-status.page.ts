@@ -1273,20 +1273,6 @@ export class CorpateStatusPage implements OnInit {
 
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
